@@ -19,12 +19,15 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->middleware('guest');
-    Route::get('/tasks', 'TaskController@index');
-    Route::post('/task', 'TaskController@store');
-    Route::delete('/task/{task}', 'TaskController@destroy');
-    Route::auth();
+Route::group(['prefix' => 'admin','name'=>'admin','middleware' => ['web']], function () {
+    
+    Route::get('/','Admin\AdminController@index');
+
+    Route::get('/category','Admin\Category\CategoryController@index');
+
+    Route::get('/add',function(){
+    	return view('admin/category/add');
+    });
+
+    Route::post('/addcategory',['uses' => 'Admin\Category\CategoryController@add']);
 });

@@ -47,7 +47,21 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                  <li class="active"><a href="#">Home</a></li>
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Words <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/admin/category">Category</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                  <li><a href="#">Page 2</a></li> 
+                  <li><a href="#">Page 3</a></li> 
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -72,6 +86,19 @@
         </div>
     </nav>
 
+    <div class="container">
+    <div class="row col-md-12 col-xs-12" >
+        <ol class="breadcrumb">
+        <li>
+            <a href="#">Admin</a>
+        </li>
+        <li>
+            <a href="#">Category</a>
+        </li>
+        <li class="active">Show</li>
+    </ol>
+    </div>
+    </div>
     @yield('content')
 
     <!-- JavaScripts -->
