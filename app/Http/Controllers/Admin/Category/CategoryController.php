@@ -23,16 +23,16 @@ class CategoryController extends Controller
 
     public function index(){
 
-    	$categorys= Task::paginate(15);
+    	$categorys= Task::where('done_flg','0')->paginate(15);
     	
     	return view('admin/category/index')->with('categorys', $categorys);
     }
 
     public function add(Request $request){
-
+        //mimes:mp4,mov,ogg,qt|
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
-            'video' => 'required|mimes:mp4,mov,ogg,qt|max:20000',
+            'video' => 'required|max:20000',
             'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
         ]);
         //dd($validator->errors()->all());exit;
@@ -57,7 +57,7 @@ class CategoryController extends Controller
         'name'   => $name,
         'image'  => $nameimage,
         'video'  => $namevideo,
-        'done_flg' =>'0'
+        'done_flg' =>'0',
         ));
         $category->save();
         $image->move($imagepath,$nameimage);
