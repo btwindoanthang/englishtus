@@ -27,18 +27,18 @@
 			</tr>
 		</thead>
 		<tbody>
+			@foreach ($categorys as $category)
 			<tr>
-				@foreach ($categorys as $category)
-			        
 			        <td>{{ $category->id }}</td>
 					<td>{{ $category->name }}</td>
-					<td>{{ $category->image }}</td>
+					<td><img src="/source/category/image/{{ $category->image }}" height="50" width="50" /></td>
 					<td>{{ $category->video }}</td>
 					<td><button type="button" class="btn btn-primary">Edit</button>
 					<button type="button" class="btn btn-danger">Delete</button></td>
-			    @endforeach
+			    
 				
 			</tr>
+			@endforeach
 		</tbody>
 	</table>
 	<div class="row">

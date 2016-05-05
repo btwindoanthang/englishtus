@@ -2,10 +2,13 @@
 
 @section('content')
 <div class="container">
+	@include('common.errors')
 	<div class="row">
+		
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<form action="/admin/addcategory" method="POST" role="form" enctype="multipart/form-data">
 				<legend>Add Category</legend>
+
 				<input name="_token" hidden value="{!! csrf_token() !!}" />
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

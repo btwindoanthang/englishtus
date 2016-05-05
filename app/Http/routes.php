@@ -19,7 +19,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin','name'=>'admin','middleware' => ['web']], function () {
+Route::group(['prefix' => 'admin','name'=>'admin'], function () {
     
     Route::get('/','Admin\AdminController@index');
 
